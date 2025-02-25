@@ -4,8 +4,7 @@
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 
-import math
-import chelper
+import mathimport chelper
 from kinematics import extruder
 from . import AFC_assist
 from configfile import error
@@ -649,7 +648,7 @@ class AFCExtruderStepper:
         if self.extruder_obj.tool_start == "buffer":
             return self.buffer_obj.advance_state
         else:
-            return self.extruder_obj.tool_start_state
+            return self.extruder_obj.tool_start_state or self.extruder_obj.tool_end_state
     def get_trailing(self):
         """
         Helper function to get trailing status, returns none if buffer is not defined
